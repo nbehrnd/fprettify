@@ -3202,9 +3202,9 @@ def get_arg_parser(args={}):
 
 
 POSSIBLE_CONFIG_FILES = frozenset(
-    [".fprettify.rc", "pyproject.toml", "fprettify.toml", ".fprettify.toml"]
+    [".fprettify.rc", "pyproject.toml", "fprettify.toml", ".fprettify.toml", "fpm.toml"]
 )
-POSSIBLE_SECTIONS = frozenset(["tool.fprettify", "fprettify"])
+POSSIBLE_SECTIONS = frozenset(["tool.fprettify", "fprettify", "extra.fprettify"])
 
 
 @cache

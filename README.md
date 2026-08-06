@@ -107,8 +107,8 @@ For more options, read
 fprettify -h
 ```
 
-If [ConfigArgParse](https://github.com/bw2/ConfigArgParse) is installed, options can also be given in a `.fprettify.rc`,
-`pyproject.toml`, `fprettify.toml`, or `.fprettify.toml` file. For example, the fprettify section of `pyproject.toml` might look like this:
+If [ConfigArgParse](https://github.com/bw2/ConfigArgParse) is installed, options can also be given in a `fpm.toml`, `.fprettify.rc`,
+`pyproject.toml`, `fprettify.toml`, or `.fprettify.toml` file. For example, the fprettify section of `pyproject.toml` might look like:
 
 ```toml
 [tool.fprettify]
