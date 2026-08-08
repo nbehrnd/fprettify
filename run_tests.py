@@ -22,11 +22,15 @@ import argparse
 import fileinput
 import io
 import os
+import shutil
 import sys
 import unittest
 
 from fprettify.tests.fortrantests import FAILED_FILE, RESULT_FILE, generate_suite
 from fprettify.tests.unittests import FprettifyUnitTestCase
+
+# protect shutil
+assert bool(shutil.disk_usage(".")) == True
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(

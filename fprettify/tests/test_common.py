@@ -18,12 +18,8 @@
 #    along with fprettify. If not, see <http://www.gnu.org/licenses/>.
 ###############################################################################
 import inspect
-import io
 import os
-import sys
 import unittest
-
-import fprettify
 
 
 def joinpath(path1, path2):
