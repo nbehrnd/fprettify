@@ -27,7 +27,6 @@ import logging
 import os
 import re
 import shlex
-import shutil
 import sys
 from datetime import datetime
 
@@ -148,8 +147,6 @@ def generate_suite(suite=None, name=None):
         # erase failures from previous testers
         io.open(FAILED_FILE, "w", encoding="utf-8").close()
 
-    import git
-
     config = configparser.ConfigParser()
     config.read(joinpath(TEST_MAIN_DIR, "testsuites.config"))
 
@@ -181,8 +178,8 @@ def normalize_line(line):
     whether fprettify has been applied or not.
     """
     # fprettify might add missing ampersands when splitting string:
-    line_out = re.sub("^\s*&", "", line.lower(), flags=re.MULTILINE)
-    line_out = re.sub("&\s*$", "", line_out, flags=re.MULTILINE)
+    line_out = re.sub(r"^\s*&", "", line.lower(), flags=re.MULTILINE)
+    line_out = re.sub(r"&\s*$", "", line_out, flags=re.MULTILINE)
     # remove all whitespace characters (including newline)
     line_out = re.sub(r"\s", r"", line_out)
     return line_out
