@@ -148,6 +148,8 @@ def generate_suite(suite=None, name=None):
         # erase failures from previous testers
         io.open(FAILED_FILE, "w", encoding="utf-8").close()
 
+    import git
+
     config = configparser.ConfigParser()
     config.read(joinpath(TEST_MAIN_DIR, "testsuites.config"))
 
