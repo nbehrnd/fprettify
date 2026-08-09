@@ -30,6 +30,8 @@ import shlex
 import sys
 from datetime import datetime
 
+import git
+
 import fprettify
 from fprettify.tests.test_common import _MYPATH, FprettifyTestCase, joinpath
 
