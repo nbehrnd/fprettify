@@ -30,6 +30,8 @@ import shlex
 import sys
 from datetime import datetime
 
+import git
+
 import fprettify
 from fprettify.tests.test_common import _MYPATH, FprettifyTestCase, joinpath
 
@@ -164,7 +166,7 @@ def generate_suite(suite=None, name=None):
                     # code is reinitialized only if path doesn't exist
                     # this allows iterative debugging to compare changes between different versions of fprettify
                     print(f"obtaining {key} ...")
-                    exec(code["obtain"])
+                    exec(code["obtain"], globals())
             finally:
                 os.chdir(orig)
 
