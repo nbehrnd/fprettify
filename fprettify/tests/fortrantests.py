@@ -31,6 +31,8 @@ import shutil
 import sys
 from datetime import datetime
 
+import git
+
 import fprettify
 from fprettify.tests.test_common import _MYPATH, FprettifyTestCase, joinpath
 
@@ -147,8 +149,6 @@ def generate_suite(suite=None, name=None):
     if os.path.exists(FAILED_FILE):  # pragma: no cover
         # erase failures from previous testers
         io.open(FAILED_FILE, "w", encoding="utf-8").close()
-
-    import git
 
     config = configparser.ConfigParser()
     config.read(joinpath(TEST_MAIN_DIR, "testsuites.config"))
