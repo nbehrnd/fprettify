@@ -3262,11 +3262,11 @@ def _get_composite_parser():
         raise RuntimeError(msg)
     return argparse.CompositeConfigParser(
         [
-            lambda: argparse.DefaultConfigFileParser(),
+            lambda: argparse.TomlConfigParser(POSSIBLE_SECTIONS),
             lambda: argparse.IniConfigParser(
                 POSSIBLE_SECTIONS, split_ml_text_to_list=True
             ),
-            lambda: argparse.TomlConfigParser(POSSIBLE_SECTIONS),
+            lambda: argparse.DefaultConfigFileParser(),
         ]
     )
 
