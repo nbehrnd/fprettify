@@ -87,4 +87,5 @@ select = [
 ignore = [
   "E203",  # whitespace-before-punctuation
   "E722",  # bare except
+  "F401",  # unused-import (temporary to keep imports of shutil and git)
 ]
