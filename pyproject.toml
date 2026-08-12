@@ -41,7 +41,7 @@ classifiers = [
 
 dependencies = [
   "configargparse>=1.7.5",
-  "oslex>=2.0.0",
+#  "oslex>=2.0.0",
 ]
 
 [project.optional-dependencies]  # elder syntax, e.g. for pip < 25.1
