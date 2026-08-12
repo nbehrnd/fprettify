@@ -19,6 +19,7 @@
 ###############################################################################
 import inspect
 import os
+import sys
 import unittest
 
 
@@ -29,7 +30,7 @@ def joinpath(path1, path2):
 _MYPATH = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 
 # path to fprettify
-RUNSCRIPT = joinpath(_MYPATH, r"../../fprettify.py")
+RUNSCRIPT = [sys.executable, joinpath(_MYPATH, r"../../fprettify.py")]
 
 
 class FprettifyTestCase(unittest.TestCase):

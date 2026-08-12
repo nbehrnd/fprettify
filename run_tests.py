@@ -69,6 +69,10 @@ if __name__ == "__main__":
         for suite in args.suite:
             if suite == "unittests":
                 test_cases.append(FprettifyUnitTestCase)
+            # Different to UNIX, colons in filenames are not accepted by Windows
+            if suite == "regular" and sys.platform == "win32":
+                sys.stdout.write("Suite 'regular' is not supported by Windows.")
+                continue
             else:
                 test_cases.append(generate_suite(suite=suite))
 
