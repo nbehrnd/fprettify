@@ -261,14 +261,18 @@ class FprettifyUnitTestCase(FprettifyTestCase):
 
             # testing file --> stdout
             p1 = subprocess.Popen(
-                [RUNSCRIPT, alien_file, "--stdout"], stdout=subprocess.PIPE
+#                [RUNSCRIPT, alien_file, "--stdout"], stdout=subprocess.PIPE
+#            )
+               RUNSCRIPT + [alien_file, "--stdout"], stdout=subprocess.PIPE
             )
+
             outstring.append(
                 p1.communicate(instring.encode("UTF-8")[0])[0].decode("UTF-8")
             )
 
             # testing file --> file (inplace)
-            p1 = subprocess.Popen([RUNSCRIPT, alien_file])
+#             p1 = subprocess.Popen([RUNSCRIPT, alien_file])
+            p1 = subprocess.Popen(RUNSCRIPT + [alien_file])
             p1.wait()
 
             with io.open(alien_file, "r", encoding="utf-8") as infile:

@@ -19,6 +19,7 @@
 ###############################################################################
 import inspect
 import os
+import sys
 import unittest
 
 
@@ -29,7 +30,14 @@ def joinpath(path1, path2):
 _MYPATH = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 
 # path to fprettify
-RUNSCRIPT = joinpath(_MYPATH, r"../../fprettify.py")
+# RUNSCRIPT = joinpath(_MYPATH, r"../../fprettify.py")
+
+# command to invoke fprettify: run the script explicitly with the current
+# Python interpreter. A bare path to fprettify.py relies on the shebang
+# line and executable bit, which only Linux/macOS honor when a subprocess
+# is launched without a shell; Windows' CreateProcess cannot execute a
+# .py file directly, so RUNSCRIPT is a list, not a string.
+RUNSCRIPT = [sys.executable, joinpath(_MYPATH, r"../../fprettify.py")]
 
 
 class FprettifyTestCase(unittest.TestCase):
