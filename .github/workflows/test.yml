@@ -30,8 +30,12 @@ jobs:
         run: pip install .[dev]
 
       - name: Run unit and short integration tests
+        # RosettaCodeData (suite "regular") contains file names with a
+        # colon, which is a reserved character on Windows/NTFS. Git for
+        # Windows cannot check those paths out, so that suite is skipped
+        # on windows-latest; unittests and builtin still run everywhere.
         run: |
-          coverage run -p --source=fprettify run_tests.py -s unittests builtin regular
+          coverage run -p --source=fprettify run_tests.py -s unittests builtin ${{ runner.os != 'Windows' && 'regular' || '' }}
 
       - name: Run long integration tests
         if: ${{ github.event_name == 'schedule' }}
