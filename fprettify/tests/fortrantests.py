@@ -26,7 +26,7 @@ import io
 import logging
 import os
 import re
-import shlex
+import oslex as shlex
 import shutil
 import sys
 from datetime import datetime
